@@ -41,7 +41,7 @@ nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between
 .menu .btn{min-height:40px;padding:8px 18px}
 
 /* hero */
-.hero{padding:72px 0 80px;display:flex;flex-direction:column;gap:48px}
+.hero{padding-top:72px;padding-bottom:80px;display:flex;flex-direction:column;gap:48px}
 .hero-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:end}
 .hero h1{font-family:'Noto Serif KR',serif;font-size:52px;line-height:1.25;letter-spacing:-.01em;margin-top:20px}
 .hero-sub{font-size:22px;color:var(--soft)}
@@ -119,6 +119,7 @@ button{font:inherit;background:var(--accent);color:#0E0F11;border:0;border-radiu
 footer{border-top:1px solid #23262B}
 footer .wrap{padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;color:#8E9298;font-size:13px}
 
+.swipe-hint{display:none;font-size:12px;color:var(--muted);margin-top:12px}
 /* floating call bar on phones */
 .fab{display:none}
 
@@ -128,25 +129,97 @@ footer .wrap{padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space
   .menu a:not(.btn){display:none}
 }
 @media (max-width:640px){
+  body{font-size:15px;line-height:1.7;padding-bottom:84px}
   br.d{display:none}
+  .wrap{padding:0 22px}
+  .eyebrow{font-size:11px;letter-spacing:.22em}
+  h2{font-size:24px;line-height:1.45}
   .section{padding:72px 0}
-  .hero{padding:40px 0 56px;gap:32px}
-  .hero h1{font-size:36px}
-  .hero-sub{font-size:17px}
-  h2{font-size:28px}
-  .promo{padding:32px 22px}
-  form{padding:24px}
+  .head{margin-bottom:28px}
+  .btn{min-height:44px;padding:10px 18px;font-size:14px}
+
+  /* nav */
+  nav{padding-top:12px;padding-bottom:12px}
+  .brand b{font-size:17px}
+  .brand small{font-size:9px;letter-spacing:.14em}
+  .menu .btn{min-height:36px;padding:6px 14px;font-size:13px}
+
+  /* hero: quiet type, edge-to-edge photo */
+  .hero{padding-top:48px;padding-bottom:0;gap:36px}
+  .hero-top{gap:20px}
+  .hero h1{font-size:28px;line-height:1.4;margin-top:14px}
+  .hero-sub{font-size:15px}
+  .actions{margin-top:20px;gap:8px}
+  .actions .btn{flex:1;white-space:nowrap}
+  .pc{display:none}
+  .hero img{border-radius:0;border:0;margin:0 -22px;width:calc(100% + 44px);max-width:none}
+
+  /* stats */
+  .stats{border-top:0}
+  .stats .grid{gap:28px 16px;padding:36px 22px}
+  .stat b{font-size:24px}
+  .stat span{font-size:12px}
+
+  /* about */
+  .two{gap:24px}
+  .about-text{font-size:15px;gap:14px}
+
+  /* service: list with hairlines instead of boxes */
+  .cards4{gap:0}
+  .card{background:none;border:0;border-top:1px solid var(--line);border-radius:0;padding:22px 0;gap:6px}
+  .card:last-child{border-bottom:1px solid var(--line)}
+  .card h3{font-size:17px}
+  .card p{font-size:14px}
+
+  /* models: swipeable row */
+  .models{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:22px;gap:12px;margin:0 -22px;padding:0 22px 8px;scrollbar-width:none}
+  .models::-webkit-scrollbar{display:none}
+  .model{flex:0 0 72%;scroll-snap-align:start;gap:10px}
+  .model img{border-radius:10px}
+  .model div{gap:8px}
+  .model h3{font-size:15px}
+  .model span{font-size:12px}
+  .swipe-hint{display:block}
+
+  /* catalog / price: compact pair */
+  #catalog{padding-bottom:72px !important}
+  .tiles{grid-template-columns:1fr 1fr;gap:10px}
+  .tile{flex-direction:column;align-items:flex-start;padding:18px;border-radius:14px;gap:10px}
+  .tile .l{flex-direction:column;align-items:flex-start;gap:10px}
+  .tile svg{width:26px;height:26px}
+  .tile b{font-size:16px}
+  .tile small{display:none}
+  .tile .arrow{display:none}
+
+  /* promo & review: no outer box */
+  #promo{padding-bottom:72px !important}
+  .promo{border:0;border-radius:0;background:none !important;padding:0;gap:28px}
+  .promo h2{font-size:24px !important}
+  .promo .txt p{font-size:15px !important}
+  .chips span{font-size:11px;padding:4px 10px}
+  .cta{padding:16px 18px;border-radius:12px}
+  .cta b{font-size:15px}
+  .cta small{font-size:12px}
+
+  /* contact */
+  .info{font-size:14px;margin-top:20px}
+  .info .k{width:64px}
+  form{padding:20px;border-radius:14px;gap:14px}
   .row2{grid-template-columns:1fr}
-  .tile{padding:24px}
-  .tile b{font-size:20px}
-  .models{gap:16px}
-  .model h3{font-size:16px}
-  .model div{flex-direction:column;gap:2px}
-  body{padding-bottom:76px}
-  .fab{display:flex;position:fixed;left:12px;right:12px;bottom:12px;gap:8px;z-index:20}
-  .fab a{flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;border-radius:999px;text-decoration:none;font-weight:700;font-size:16px}
+  input[type=text],input[type=tel],select,textarea{padding:12px;font-size:16px}
+  button{padding:14px;font-size:15px}
+
+  /* map */
+  #map{padding-bottom:64px !important}
+  .map-link img{border-radius:12px}
+
+  footer .wrap{flex-direction:column;font-size:11px;padding:24px 22px}
+
+  /* slim floating bar */
+  .fab{display:flex;position:fixed;left:0;right:0;bottom:0;gap:8px;z-index:20;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(14,15,17,.92);backdrop-filter:blur(8px);border-top:1px solid #23262B}
+  .fab a{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px}
   .fab .call{background:var(--accent);color:#0E0F11}
-  .fab .kakao{background:#FEE500;color:#191919}
+  .fab .kakao{border:1px solid var(--line2);color:var(--text)}
 }
 </style>
 </head>
@@ -177,7 +250,7 @@ footer .wrap{padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space
 <p class="hero-sub">견적 비교, 할부·리스 설계, 출고 후 관리까지. <br class="d">정찬희 과장이 처음부터 끝까지 직접 상담합니다.</p>
 <div class="actions">
 <a class="btn btn-primary" href="#contact">무료 견적 받기</a>
-<a class="btn btn-ghost" href="tel:010-7541-8033">전화 상담 010-7541-8033</a>
+<a class="btn btn-ghost" href="tel:010-7541-8033">전화 상담<span class="pc"> 010-7541-8033</span></a>
 </div>
 </div>
 </div>
@@ -235,6 +308,7 @@ footer .wrap{padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space
 <div class="model"><img src="img/g.jpg" alt="G-Class" loading="lazy"><div><h3>G-Class</h3><span>오프로더</span></div></div>
 <div class="model"><img src="img/eq.jpg" alt="EQ 전기차" loading="lazy"><div><h3>EQ 시리즈</h3><span>전기차</span></div></div>
 </div>
+<p class="swipe-hint">옆으로 넘겨 12개 모델을 확인하세요 →</p>
 </div>
 </section>
 
@@ -326,7 +400,7 @@ footer .wrap{padding:32px 24px;display:flex;flex-wrap:wrap;justify-content:space
 <div><span class="k">전화</span><a href="tel:010-7541-8033">010-7541-8033</a></div>
 </div>
 <div class="actions" style="margin-top:8px">
-<a class="btn btn-primary" href="https://map.naver.com/p/search/%EC%A0%84%EB%B6%81%20%EC%A0%84%EC%A3%BC%EC%8B%9C%20%EB%8D%95%EC%A7%84%EA%B5%AC%20%EC%98%A8%EA%B3%A0%EC%9D%84%EB%A1%9C%20468" target="_blank" rel="noopener">네이버 지도에서 보기 ↗</a>
+<a class="btn btn-primary" href="https://map.naver.com/p/search/%EC%A0%84%EB%B6%81%20%EC%A0%84%EC%A3%BC%EC%8B%9C%20%EB%8D%95%EC%A7%84%EA%B5%AC%20%EC%98%A8%EA%B3%A0%EC%9D%84%EB%A1%9C%20468" target="_blank" rel="noopener">네이버 지도<span class="pc">에서 보기</span> ↗</a>
 <a class="btn btn-ghost" href="tel:010-7541-8033">방문 예약 전화</a>
 </div>
 </div>
